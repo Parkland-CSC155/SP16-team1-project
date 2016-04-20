@@ -4,11 +4,14 @@ var fs = require("fs");
 
 var app = express();
 
-var filePath = "./data/breaking_bad.json";
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(".data/nutrition.db");
+
+var filePath = "./data/*";
 var jdata = fs.readFileSync(filePath);
 var data = JSON.parse(jdata);
 // get id for a single episode
-console.log(data._embedded.episodes[0].id);
+//console.log(data._embedded.episodes[0].id);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "views"));
@@ -19,25 +22,17 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get("/episodes", function(req, res){
-    for(var i = 0; i < data._embedded.episodes.length; i++) {
+app.get("/nutrition", function(req, res){
        res.render("index", { 
-       Name: "Breaking Bad",
-       Season: data._embedded.episodes[i].season,
-       Episode: data._embedded.episodes[i].number,
-       Date: data._embedded.episodes[i].airdate
+       Name: "Ingredient"
     }); 
-    }
 });
 
-app.get("/episode/:id", function(req, res){
+app.get("/nutrition/:id", function(req, res){
    var id = req.params.id;
-   var page = req.query.page;   
+   var page = req.query.page; 
+   res.send("something here"); 
    res.render("detail.html")
-   for(var i = 0; i < data._embedded.episodes.length; i++) {
-       
-   }
-   res.send(data._embedded.dataset.name); 
 });
 
 // handle 404 errors for URLs that dont exist
