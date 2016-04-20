@@ -22,6 +22,10 @@ app.use(function(req, res, next){
     next();
 });
 
+app.get("/api/search", require(".routes/api"));
+app.get("/api/list", require(".routes/api"));
+
+
 app.get("/nutrition", function(req, res){
        res.render("index", { 
        Name: "Ingredient"
