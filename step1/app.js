@@ -4,8 +4,8 @@ var fs = require("fs");
 
 var app = express();
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(".data/nutrition.db");
+//var sqlite3 = require('sqlite3').verbose();
+//var db = new sqlite3.Database(".data/nutrition.db");
 
 var filePath = "./data/*";
 var jdata = fs.readFileSync(filePath);
