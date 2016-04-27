@@ -7,7 +7,7 @@ var app = express();
 //var sqlite3 = require('sqlite3').verbose();
 //var db = new sqlite3.Database(".data/nutrition.db");
 
-var filePath = "./data/*";
+var filePath = "./datasets/*";
 var jdata = fs.readFileSync(filePath);
 var data = JSON.parse(jdata);
 // get id for a single episode
