@@ -1,15 +1,17 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
+var sql = require("mssql");
+var connectionString = process.env.MS_TableConnectionString; //my db credentials
 
 var app = express();
 
 //var sqlite3 = require('sqlite3').verbose();
 //var db = new sqlite3.Database(".data/nutrition.db");
 
-var filePath = "./datasets/*";
-var jdata = fs.readFileSync(filePath);
-var data = JSON.parse(jdata);
+// var filePath = "./datasets/*";
+// var jdata = fs.readFileSync(filePath);
+// var data = JSON.parse(jdata);
 // get id for a single episode
 //console.log(data._embedded.episodes[0].id);
 
@@ -22,8 +24,8 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get("/api/search", require(".routes/api"));
-app.get("/api/list", require(".routes/api"));
+// app.get("/api/search", require("./routes/api"));
+app.get("/api", require("./routes/api"));
 
 
 app.get("/nutrition", function(req, res){
