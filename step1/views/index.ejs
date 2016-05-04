@@ -7,10 +7,18 @@
     <body>
         <h1>Nutriton Infomation</h1>
         <hr>
-        <ul>
-            <% for(var i=0; i<infos.length; i++) {%>
-                <li><%= infos[i] %></li>
+        <table style="width:100%">
+        <% for(var i=0; i<25; i++) {%>
+            <tr>
+                <td><%= infos[i]['Shrt_Desc'] %></td>
+                <td><%= infos[i]['Energ_Kcal'] %></td>
+                <td><%= infos[i]['Carbohydrt_(g)'] %></td>
+                <td><%= infos[i]['Lipid_Tot(g)'] %></td>
+                <td><%= infos[i]['Protein_(g)'] %></td>
+                <td><%= infos[i]['Sodium_(mg)'] %></td>
+                <td><%= infos[i]['Sugar_Tot_(g)'] %></td>
                 <% } %>
-        </ul>
+            </tr>
+        </table>
     </body>
 </html>
