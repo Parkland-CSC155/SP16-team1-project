@@ -33,8 +33,17 @@ app.get("/api/list", require("./routes/api"));
 
 app.get("/", function(req, res){
        res.render("index",{
-           Name: "Ingredient"
+           Name: "Ingredient",
+           infos: ["one", "two", "three"]
        }); 
+});
+// example!!!!!!!!!!
+// res.render('list', {
+//    rows: nutritionrecords
+//});
+
+app.get("/calculator", function(req, res){
+       res.render("calculator") 
 });
 
 app.get("/nutrition", function(req, res){
