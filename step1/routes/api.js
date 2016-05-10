@@ -6,7 +6,8 @@ router.get("/search", function(req, res){
 });
 
 router.get("/list", function(req, res){
-    res.json()
+    res.send("Test file")
+    //res.json()
 });
 
 //     var skip = (page - 1) * 25;
